@@ -111,7 +111,7 @@ namespace MobiasFunctionBuilder.ConsoleTest
         /// This method will create mDictionary object and return it
         /// </summary>
         /// <returns></returns>
-        public static Expression<Func<mDictionary>> BuildLambda()
+        public static Expression<Func<mDictionary>> BuildLambdaAndReturnDictionaryExpression()
         {
             var expectedType = typeof(mDictionary);
             //   var displayValueParam = Expression.Parameter(typeof(bool), "displayValue");

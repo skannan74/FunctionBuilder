@@ -10,7 +10,7 @@ namespace MobiasFunctionBuilder.ConsoleTest
     {
         static void Main(string[] args)
         {
-            var fn = Sample.BuildLambda();
+            var fn = Sample.BuildLambdaAndReturnDictionaryExpression();
 
             mDictionary result = fn.Compile().DynamicInvoke() as mDictionary;
         }
