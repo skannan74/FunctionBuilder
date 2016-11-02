@@ -5,3 +5,6 @@
 /MobiasFunctionBuilder/obj/Debug
 /MobiasFunctionBuilder.ConsoleTest/obj/Debug
 /MobiasFunctionBuilder.UnitTest/obj/Debug
+/MobiasFunctionBuilder/bin/Debug
+/MobiasFunctionBuilder.UnitTest/bin/Debug/Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+/MobiasFunctionBuilder.UnitTest/bin/Debug
