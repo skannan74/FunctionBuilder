@@ -3,3 +3,5 @@
 ################################################################################
 
 /MobiasFunctionBuilder/obj/Debug
+/MobiasFunctionBuilder.ConsoleTest/obj/Debug
+/MobiasFunctionBuilder.UnitTest/obj/Debug

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiasFunctionBuilder", "Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiasFunctionBuilder.UnitTest", "MobiasFunctionBuilder.UnitTest\MobiasFunctionBuilder.UnitTest.csproj", "{D55BDBC2-2045-46DD-A65C-2806B56C1EB5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobiasFunctionBuilder.ConsoleTest", "MobiasFunctionBuilder.ConsoleTest\MobiasFunctionBuilder.ConsoleTest.csproj", "{C536B971-62FC-47B4-9D9F-29AE25A92646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D55BDBC2-2045-46DD-A65C-2806B56C1EB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D55BDBC2-2045-46DD-A65C-2806B56C1EB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D55BDBC2-2045-46DD-A65C-2806B56C1EB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C536B971-62FC-47B4-9D9F-29AE25A92646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C536B971-62FC-47B4-9D9F-29AE25A92646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C536B971-62FC-47B4-9D9F-29AE25A92646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C536B971-62FC-47B4-9D9F-29AE25A92646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
