@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using MobiasFunctionBuilder.Operations;
 
 namespace MobiasFunctionBuilder.ConsoleTest
 {
@@ -116,7 +117,7 @@ namespace MobiasFunctionBuilder.ConsoleTest
             var expectedType = typeof(mDictionary);
             //   var displayValueParam = Expression.Parameter(typeof(bool), "displayValue");
             var ctor = Expression.New(expectedType);
-            var local = Expression.Parameter(expectedType, "obj");
+            var local = Expression.Variable(expectedType, "obj"); // or Exprassion.Parameter will work
             //  var displayValueProperty = Expression.Property(local, "DisplayValue");
             var KeyExpressionGetter = Expression.Call(local, expectedType.GetMethod("SetVal"), Expression.Constant("KeyName1"), Expression.Constant("ValName1"));
 
@@ -150,9 +151,66 @@ namespace MobiasFunctionBuilder.ConsoleTest
                 Expression.Lambda<Func<mDictionary>>(block1);
         }
 
+        public static dynamic PropertySetter()
+        {
+            var lobjDictionaryType = typeof(mDictionary);
+            var newExpression = Function.Create()
+                    .InputParameter<busMSSPerson>("source")
+                    .Body(
+                        BodyLine.CreateVariable(lobjDictionaryType,"lobjDictionaryInstance"),
+                        BodyLine.Assign("lobjDictionaryInstance", Operation.CreateInstance(lobjDictionaryType)),
+                        Operation.Invoke(Operation.Variable("lobjDictionaryInstance"),"SetVal",new OperationConst("FName"),Operation.Get("source.ibusPersonPrimaryPhone.icdoPersonPhone.phone_number"))
+                        
+                        )
+                    .Returns("lobjDictionaryInstance");
+
+            return newExpression;
+
+        }
+
+        public static dynamic PropertySetterWithLoop()
+        {
+            var lobjDictionaryType = typeof(mDictionary);
+            var newExpression = Function.Create()
+                    .InputParameter<busMSSPerson>("source")
+                    .Body(
+                        BodyLine.CreateVariable(lobjDictionaryType, "lobjDictionaryInstance"),
+                        BodyLine.Assign("lobjDictionaryInstance", Operation.CreateInstance(lobjDictionaryType)),
+                        Operation.Invoke(Operation.Variable("lobjDictionaryInstance"), "SetVal", new OperationConst("Phone"), Operation.Get("source.ibusPersonPrimaryPhone.icdoPersonPhone.phone_number")),
+                        Operation.Invoke(Operation.Variable("lobjDictionaryInstance"), "SetVal", new OperationConst("FName"), Operation.Get("source.FirstName")),
+                        BodyLine.CreateWhile()
+                        
+
+                        )
+                    .Returns("lobjDictionaryInstance");
+
+            return newExpression;
+
+        }
+
+        public static Expression<Func<mDictionary>> NestedProperty(busMSSPerson aobjPerson)
+        {
+            var expectedType = typeof(mDictionary);
+            var ctor = Expression.New(expectedType);
+            var local = Expression.Parameter(expectedType, "obj");
 
 
-       
-       
+
+
+            var KeyExpressionGetter = Expression.Call(local, expectedType.GetMethod("SetVal"), Expression.Constant("KeyName1"), Expression.Constant("ValName1"));
+
+
+
+            var block = Expression.Block(
+                new[] { local },
+                Expression.Assign(local, ctor),
+                KeyExpressionGetter,
+                local
+                );
+            return Expression.Lambda<Func<mDictionary>>(block);
+        }
+
+
+
     }
 }

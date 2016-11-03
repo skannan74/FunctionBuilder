@@ -47,5 +47,30 @@ namespace MobiasFunctionBuilder
             return Assign(Operation.Variable(lVariableName), rValue, assignType);
         }
 
+        //public static IIf CreateIf(Condition condition)
+        //{
+        //    return new If(condition);
+        //}
+
+
+        public static IWhile CreateWhile(Condition condition)
+        {
+            return new While(condition);
+        }
+
+        public static IBodyLine Return()
+        {
+            return new CreateReturn();
+        }
+
+        //public static IBodyLine Nop
+        //{
+        //    get
+        //    {
+        //        return new Nop();
+        //    }
+
+        //}
+
     }
 }

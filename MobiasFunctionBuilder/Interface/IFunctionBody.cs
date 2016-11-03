@@ -2,6 +2,6 @@
 {
     public interface IFunctionBody
     {
-        IFunctionReturn Body(params IBodyLine[] bodyLines);
+        IFunctionReturn Body(IBodyLine firstBodyLine, params IBodyLine[] bodyLines);
     }
 }

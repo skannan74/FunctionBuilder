@@ -44,6 +44,8 @@
     <Compile Include="BodyLines\Assign.cs" />
     <Compile Include="BodyLines\CreateReturn.cs" />
     <Compile Include="BodyLines\CreateVariable.cs" />
+    <Compile Include="BodyLines\OperationInvoke.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="Enums\AssignementOperator.cs" />
     <Compile Include="Enums\ComparaisonOperator.cs" />
     <Compile Include="Interface\ILeftable.cs" />
@@ -56,8 +58,10 @@
     <Compile Include="Interface\IFunctionReturn.cs" />
     <Compile Include="Interface\ILeftRightable.cs" />
     <Compile Include="Interface\IOperation.cs" />
+    <Compile Include="Interface\IWhile.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Operations\OperationConst.cs" />
+    <Compile Include="Operations\OperationNew.cs" />
     <Compile Include="Operations\OperationProperty.cs" />
     <Compile Include="Operations\OperationVariable.cs" />
     <Compile Include="Parser\IParsable.cs" />
@@ -65,8 +69,10 @@
     <Compile Include="Parser\ParserContext.cs" />
     <Compile Include="Parser\ParserLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\MethodCallDescriptor.cs" />
     <Compile Include="Utils\ReflectionUtil.cs" />
     <Compile Include="Variable.cs" />
+    <Compile Include="While.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,6 +48,7 @@ namespace MobiasFunctionBuilder.Parser
 
         internal Variable GetVariable(string name)
         {
+            name = name.Split('.')[0];
             int i = Count - 1;
             while (i >= 0)
             {
@@ -83,6 +84,26 @@ namespace MobiasFunctionBuilder.Parser
         public void RemoveLevel()
         {
             _parseLevels.RemoveAt(Level);
+        }
+
+        internal string Pad
+        {
+            get
+            {
+                return GetPad(Level + 1);
+            }
+        }
+
+
+        internal string GetPad(int level)
+        {
+            var res = "";
+            while (level >= 0)
+            {
+                res += " ";
+                level--;
+            }
+            return res;
         }
 
     }

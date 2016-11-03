@@ -66,8 +66,9 @@ namespace MobiasFunctionBuilder
             return InputParameter(typeof(TData), name);
         }
 
-        public IFunctionReturn Body(params IBodyLine[] bodyLines)
+        public IFunctionReturn Body(IBodyLine firstBodyLine, params IBodyLine[] bodyLines)
         {
+            _bodyLines.Add(firstBodyLine);
             _bodyLines.AddRange(bodyLines);
 
             return this;
@@ -100,7 +101,7 @@ namespace MobiasFunctionBuilder
 
         public Expression ToExpression(ParseContext context)
         {
-           // PreParseExpression();
+            PreParseExpression();
             var expressionsList = new List<Expression>();
             var exprParams = new List<ParameterExpression>();
 
